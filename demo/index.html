@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Demo</title>
+    <link rel="stylesheet" media="screen" href="stylesheets/espace-recruteurs.css">
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <script src="javascripts/libs/angular/angular.js"></script>
+    <script src="javascripts/libs/angular/angular-animate.js"></script>
+    <script src="javascripts/pages/demo.js"></script>
+    <script src="../assets/javascripts/modules/placesApi.js"></script>
+    <script src="../assets/javascripts/modules/taggleService.js"></script>
+    <script src="../assets/javascripts/libs/lodash.js"></script>
+    <script src="../assets/javascripts/libs/taggle.js"></script>
+    <script src="../assets/javascripts/directives/ngAutoCompletePlaces.js"></script>
+</head>
+
+<body ng-app="demo">
+    <div class="wrap">
+        <div class="container_clearfix">
+            <div class="mainblock_center" ng-controller="DemoController">
+                <div class="row">
+                    <div class="column_full">
+                        <h1 class="column__entete">Enter location</h1>
+                        <ng-form name="saisieOffreForm">
+                            <fieldset class="column__form">
+                                <div class="form__row">
+                                    <div class="column_quarter"></div>
+                                    <div class="column_half form__input_group">
+                                        <ng-auto-complete-places name="localisations" required="true" class="form__map" ng-model="jobOffer.localisations"></ng-auto-complete-places>
+                                        <label class="form__text_required" ng-show="!saisieOffreForm.localisations.$valid">* localisations obligatoire</label>
+                                        <label ng-cloak class="form__text_valid" ng-show="saisieOffreForm.localisations.$valid">&#x2713;</label>
+                                    </div>
+                                </div>
+                                <div class="form__row_button">
+                                    <div class="column_full_center">
+                                        <button type="button" ng-click="inscription()" class="form__button ng-hide" ng-show="saisieOffreForm.$valid" ng-disabled="!saisieOffreForm.$valid || created || loading" ng-class="{form__button_primary_validated:created, form__button_loading:loading}">
+                                            <span ng-show="!created && !loading">Enregistrer</span>
+                                            <span ng-cloak ng-show="created">Offre mise à jour !</span>
+                                            <span ng-cloak ng-show="loading" class="form__button_loading_label">En cours ...</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </ng-form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

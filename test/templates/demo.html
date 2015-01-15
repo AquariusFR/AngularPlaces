@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="column_full">
+        <h1 class="column__entete">Editer une offre d'emploi</h1>
+        <ng-form name="saisieOffreForm">
+            <fieldset class="column__form">
+                <div class="form__row">
+                    <div class="column_quarter"></div>
+                    <div class="column_half form__input_group">
+                        <auto-complete-places name="localisations" required="true" class="form__map"
+                                       ng-model="jobOffer.localisations"></auto-complete-places>
+                        <label class="form__text_required" ng-show="!saisieOffreForm.localisations.$valid">* localisations obligatoire</label>
+                        <label ng-cloak class="form__text_valid" ng-show="saisieOffreForm.localisations.$valid">&#x2713;</label>
+                    </div>
+                </div>
+                <div class="form__row_button">
+                    <div class="column_full_center">
+                        <button type="button" ng-click="inscription()" class="form__button ng-hide"
+                                ng-show="saisieOffreForm.$valid"
+                                ng-disabled="!saisieOffreForm.$valid || created || loading"
+                                ng-class="{form__button_primary_validated:created, form__button_loading:loading}">
+                            <span ng-show="!created && !loading">Enregistrer</span>
+                            <span ng-cloak ng-show="created">Offre mise à jour !</span>
+                            <span ng-cloak ng-show="loading" class="form__button_loading_label">En cours ...</span>
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+        </ng-form>
+    </div>
+</div>

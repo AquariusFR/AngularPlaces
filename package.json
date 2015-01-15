@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "express": "~4.9.x",
+    "body-parser": "~1.8.x"
+	},
+  "devDependencies": {
+
+	"karma": "~0.12",
+    "karma-junit-reporter": "~0.2",
+    "karma-requirejs": "~0.2",
+    "karma-mocha": "~0.1",
+    "karma-chai": "~0.1",
+    "karma-html2js-preprocessor": "~0.1",
+    "karma-phantomjs-launcher": "~0.1",
+    "karma-chrome-launcher": "~0.1",
+    "karma-coverage": "~0.2",
+    "karma-mocha-reporter": "~0.3"
+  }
+}
